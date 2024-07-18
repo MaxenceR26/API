@@ -1,17 +1,16 @@
 const http = require('http')
 const express = require('express');
 const app = express();
+app.use(express.json());
+
 
 // Gestion des routes
-const createEvent = require('./api/createEvent');
-const deleteEvent = require('./api/deleteEvent');
 const getEvent = require('./api/getEvent');
 
 // Redirection des routes
-app.use('/api/createEvent', createEvent);
-app.use('/api/deleteEvent', deleteEvent);
 app.use('/', getEvent);
-
+app.use('/:id', getEvent);
+app.use('/createEvent', getEvent);
 // Server
 const server = http.createServer(app);
 
