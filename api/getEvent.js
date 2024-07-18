@@ -18,9 +18,25 @@ router.get('/', (req, res) => {
     });
 });
 
+// Route GET pour supprimer un évènement avec un ID en particulier
+router.get('/delete/:id', (req, res) => {
+    const id = req.params.id;
+
+    const query = 'DELETE FROM `events` WHERE `id` = ?';
+
+    connection.query(query, [id], function(err, results) {
+        if (err) {
+            console.log('erreur +> ', err)
+        }
+        console.log("Requête exécutée avec succès:", results);
+        res.status(200).send("Suppresion réussie.");
+    })
+    console.log("req.params.id:", req.params.id);
+});
+
 // Route GET pour obtenir un évènement avec un ID en particulier
 router.get('/:id', (req, res) => {
-    const id = req.params.id;;
+    const id = req.params.id;
 
     const query = 'SELECT `event_title` FROM `events` WHERE `id` = ?';
 
