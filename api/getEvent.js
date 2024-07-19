@@ -6,7 +6,7 @@ const connection = require('../database/connection');
  * @swagger
  * components:
  *   schemas:
- *     Books:
+ *     Intranet:
  *       type: object
  *       required:
  *         - title
@@ -23,77 +23,77 @@ const connection = require('../database/connection');
 /**
  * @swagger
  * tags:
- *   name: Books
- *   description: The books managing API
+ *   name: Intranet
+ *   description: La documentation de l'API de calendrier
  * /:
  *   get:
- *     summary: Lists all the books
- *     tags: [Books]
+ *     summary: Afficher tout les évenements de tout les calendriers
+ *     tags: [Intranet]
  *     responses:
  *       200:
- *         description: The list of the books
+ *         description: La liste des évenements
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Books'
+ *                 $ref: '#/components/schemas/Intranet'
  * /createevent/:
  *  post:
- *     summary: Create a new book
- *     tags: [Books]
+ *     summary: Crée un évenement
+ *     tags: [Intranet]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Books'
+ *             $ref: '#/components/schemas/Intranet'
  *     responses:
  *       200:
- *         description: The created book.
+ *         description: La création de l'évenement.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Books'
+ *               $ref: '#/components/schemas/Intranet'
  *       500:
- *         description: Some server error
+ *         description: Une erreur serveur est survenue
  * /id/{id}:
  *   get:
- *     summary: Get the book by id
- *     tags: [Books]
+ *     summary: Regarder un évenement en particulier grâce à un ID
+ *     tags: [Intranet]
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: The book id
+ *         description: L'ID de l'évenement
  *     responses:
  *       200:
- *         description: The book response by id
+ *         description: La réponse
  *         contens:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Books'
+ *               $ref: '#/components/schemas/Intranet'
  *       404:
- *         description: The book was not found
+ *         description: L'évenement n'a pas était trouvé
  * /delete/{id}:
  *   delete:
- *     summary: Remove the book by id
- *     tags: [Books]
+ *     summary: Supprimer un évenement grâce à un ID
+ *     tags: [Intranet]
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: The book id
+ *         description: L'ID de l'évenement à supprimer
  *
  *     responses:
  *       200:
- *         description: The book was deleted
+ *         description: L'évenement à bien était supprimé
  *       404:
- *         description: The book was not found
+ *         description: L'ID de l'évenement à supprimer
  */
  
 

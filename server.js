@@ -35,7 +35,7 @@ const options = {
             { url: 'http://localhost:5000/' },
         ],
     },
-    apis: ["./api/*.js"] //routes
+    apis: ["./api/*.js"]
 };
 
 const spacs = swaggerjsdoc(options)
