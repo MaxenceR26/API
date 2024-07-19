@@ -128,7 +128,7 @@ router.delete('/delete/:id', (req, res) => {
             return res.status(404).send("Event not found.");
         }
 
-        console.log("Requête exécutée avec succès:", results);
+        console.log("Requête exécutée avec succès :", results);
         res.status(200).send("Suppresion réussie.");
     });
 
