@@ -1,6 +1,8 @@
 const http = require('http')
 const express = require('express');
 const app = express();
+const swaggerjsdoc = require("swagger-jsdoc")
+const swaggerui = require("swagger-ui-express")
 app.use(express.json());
 
 
@@ -9,12 +11,37 @@ const getEvent = require('./api/getEvent');
 
 // Redirection des routes
 app.use('/', getEvent);
-app.use('/:id', getEvent);
+app.use('/id/:id', getEvent);
 app.use('/delete/:id', getEvent);
 app.use('/createEvent', getEvent);
 // Server
 const server = http.createServer(app);
 
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "API Intranet Osartis-Marquion doc",
+            version: "1.0",
+            description: 
+            "Api de communication pour le calendrier partagé de l'intranet de Osartis-Marquion, afin d'ajouter/supprimer/regarder un évènement.",
+            contact: {
+                name: "Maxence Rémy",
+                url: "https://cc-osartis.com",
+                email: "maxence.remy26@gmail.com"
+            }
+        },
+        servers: [
+            { url: 'http://localhost:5000/' },
+        ],
+    },
+    apis: ["./api/*.js"] //routes
+};
+
+const spacs = swaggerjsdoc(options)
+app.use("/api-docs", swaggerui.serve,
+    swaggerui.setup(spacs)
+)
 server.listen(5000, 'localhost', () => {
     console.log('Server is listening at localhost on port 5000')
 })
