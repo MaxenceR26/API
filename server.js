@@ -20,6 +20,7 @@ const getEvent = require('./api/getEvent');
 app.use('/', getEvent);
 app.use('/id/:id', getEvent);
 app.use('/delete/:id', getEvent);
+app.use('/type/:type', getEvent);
 app.use('/createEvent', getEvent);
 // Server
 const server = http.createServer(app);

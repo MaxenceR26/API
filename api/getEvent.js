@@ -157,6 +157,22 @@ router.get('/id/:id', (req, res) => {
     console.log("req.params.id:", req.params.id);
 });
 
+// Route GET pour obtenir un évènement avec un type en particulier
+router.get('/type/:type', (req, res) => {
+    const type = req.params.type;
+
+    const query = 'SELECT `event_title` FROM `events` WHERE `type` = ?';
+
+    connection.query(query, [type], function(err, results) {
+        if (err) {
+            console.log('erreur +> ', err)
+        }
+        console.log("Requête exécutée avec succès:", results);
+        res.status(200).send(results);
+    })
+    console.log("req.params.type:", req.params.type);
+});
+
 // Route POST pour créer un événement
 router.post('/createEvent', (req, res) => {
     const { event_date, event_title, descriptions, hours} = req.body;
