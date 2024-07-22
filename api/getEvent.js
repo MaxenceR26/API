@@ -19,6 +19,12 @@ const connection = require('../database/connection');
  *         event_date:
  *           type: string
  *           description: The book explanation
+ *         descriptions:
+ *           type: string
+ *           description: The descriptions of evenement
+ *         hours:
+ *           type: string
+ *           description: End evenement
  */
 /**
  * @swagger
@@ -153,16 +159,16 @@ router.get('/id/:id', (req, res) => {
 
 // Route POST pour créer un événement
 router.post('/createEvent', (req, res) => {
-    const { event_date, event_title } = req.body;
+    const { event_date, event_title, descriptions, hours} = req.body;
 
-    if (!event_date || !event_title) {
+    if (!event_date || !event_title || !descriptions || !hours) {
         res.status(400).send("Champs obligatoires manquants");
         return;
     }
 
-    const query = 'INSERT INTO events (event_date, event_title) VALUES (?, ?)';
+    const query = 'INSERT INTO events (event_date, event_title, descriptions, hours) VALUES (?, ?, ?, ?)';
 
-    connection.query(query, [event_date, event_title], function(err, results, fields) {
+    connection.query(query, [event_date, event_title, descriptions, hours], function(err, results, fields) {
         if (err) {
             console.error("Une erreur est survenue:", err);
             res.status(500).send("Une erreur s’est produite lors de l’exécution de la requête.");
