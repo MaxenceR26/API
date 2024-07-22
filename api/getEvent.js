@@ -27,7 +27,7 @@ const connection = require('../database/connection');
  *           description: End evenement
  *         type:
  *           type: string
- *           description: Type of calendar (ex: voiture, réunion...)
+ *           description: Type of calendar
  */
 /**
  * @swagger
