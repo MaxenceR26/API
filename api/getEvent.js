@@ -161,7 +161,7 @@ router.get('/id/:id', (req, res) => {
 router.get('/type/:type', (req, res) => {
     const type = req.params.type;
 
-    const query = 'SELECT `event_title` FROM `events` WHERE `type` = ?';
+    const query = 'SELECT * FROM `events` WHERE `type` = ?';
 
     connection.query(query, [type], function(err, results) {
         if (err) {
