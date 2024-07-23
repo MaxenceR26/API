@@ -1,0 +1,184 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API de Calendrier - Intranet",
+    "description": "Cette API permet de gérer les événements de calendrier dans l'intranet. Vous pouvez afficher tous les événements, créer de nouveaux événements, consulter des événements spécifiques et les supprimer. \nLa documentation fournit des informations sur chaque opération disponible, ainsi que les formats de réponse et les codes de statut HTTP.",
+    "termsOfService": "http://example.com/terms/",
+    "contact": {
+      "email": "maxence.remy26@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Intranet",
+      "description": "La documentation de l'API de calendrier"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Intranet"
+        ],
+        "summary": "Afficher tous les événements de tous les calendriers",
+        "responses": {
+          "200": {
+            "description": "La liste des événements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Intranet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createevent/": {
+      "post": {
+        "tags": [
+          "Intranet"
+        ],
+        "summary": "Créer un événement",
+        "requestBody": {
+          "description": "L'événement à créer",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Intranet"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "L'événement a été créé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Intranet"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Une erreur serveur est survenue"
+          }
+        }
+      }
+    },
+    "/id/{id}": {
+      "get": {
+        "tags": [
+          "Intranet"
+        ],
+        "summary": "Regarder un événement en particulier grâce à un ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "L'ID de l'événement",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "La réponse contenant les détails de l'événement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Intranet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "L'événement n'a pas été trouvé"
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Intranet"
+        ],
+        "summary": "Supprimer un événement grâce à un ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "L'ID de l'événement à supprimer",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "L'événement a été supprimé"
+          },
+          "404": {
+            "description": "L'événement à supprimer n'a pas été trouvé"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Intranet": {
+        "type": "object",
+        "required": [
+          "event_title",
+          "event_date",
+          "descriptions",
+          "hours",
+          "type"
+        ],
+        "properties": {
+          "event_title": {
+            "type": "string",
+            "description": "Le titre de l'événement"
+          },
+          "event_date": {
+            "type": "string",
+            "format": "date",
+            "description": "La date de l'événement"
+          },
+          "descriptions": {
+            "type": "string",
+            "description": "La description de l'événement"
+          },
+          "hours": {
+            "type": "string",
+            "description": "Les heures de l'événement"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type de calendrier"
+          }
+        }
+      }
+    }
+  }
+}
