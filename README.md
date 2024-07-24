@@ -27,14 +27,8 @@ This API is designed to manage calendar events, allowing users to add, delete, o
 
 This API is realised with NodeJS
 
-- [Next](https://nextjs.org)
-- [React](https://reactjs.org)
-- [Vue](https://vuejs.org)
-- [Angular](https://angular.io)
-- [Svelte](https://svelte.dev)
-- [Laravel](https://laravel.com)
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
+- [NodeJS](https://nodejs.org/docs/latest/api/)
+- [MYSQLI](https://www.php.net/manual/fr/book.mysqli.php)
  ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
