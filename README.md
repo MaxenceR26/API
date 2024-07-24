@@ -13,6 +13,7 @@ Its an API to manage events in the calendar
 <br/>
 <br/>
 <a href="https://maxencer26.github.io/API/">View Demo .</a>  
+[![Swagger UI](https://img.shields.io/badge/Swagger%20UI-Documentation-blue)](https://maxencer26.github.io/API/)
 
 
 </p>
