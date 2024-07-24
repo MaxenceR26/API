@@ -1,8 +1,8 @@
                          
 <br/>
 <div align="center">
-<a href="https://github.com/ShaanCoding/ReadME-Generator">
-<img src="https://imgur.com/GS0RJUh.jpg" alt="Logo" width="auto" height="30"><p>          </p><img src="https://imgur.com/GSpYUZR.jpg" alt="Logo" width="auto" height="60">
+<a href="https://github.com/ShaanCoding/ReadME-Generator" style="display:flex; justify-content:space-between;">
+<img src="https://imgur.com/GS0RJUh.jpg" alt="Logo" width="auto" height="30"><img src="https://imgur.com/GSpYUZR.jpg" alt="Logo" width="auto" height="60">
 </a>
 <h3 align="center">API Calendar</h3>
 <p align="center">
