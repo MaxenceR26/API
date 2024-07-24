@@ -2,7 +2,7 @@
 <br/>
 <div align="center">
 <a href="https://github.com/ShaanCoding/ReadME-Generator">
-<img src="https://www.cc-osartis.com/themes/custom/spe/images/logo.png" alt="Logo" width="80" height="80">
+<img src="https://www.cc-osartis.com/themes/custom/spe/images/logo.png" alt="Logo" width="130" height="auto">
 </a>
 <h3 align="center">API Calendar</h3>
 <p align="center">
@@ -13,7 +13,6 @@ Its an API to manage events in the calendar
 <br/>
 <br/>
 <a href="https://maxencer26.github.io/API/">View Demo .</a>  
-[![Swagger UI](https://img.shields.io/badge/Swagger%20UI-Documentation-blue)](https://maxencer26.github.io/API/)
 
 
 </p>
