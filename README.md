@@ -2,7 +2,7 @@
 <br/>
 <div align="center">
 <a href="https://github.com/ShaanCoding/ReadME-Generator">
-<img src="https://imgur.com/GS0RJUh.jpg" alt="Logo" width="auto" height="30">$nbsp;<img src="https://imgur.com/GSpYUZR.jpg" alt="Logo" width="auto" height="30">
+<img src="https://imgur.com/GS0RJUh.jpg" alt="Logo" width="auto" height="30">       <img src="https://imgur.com/GSpYUZR.jpg" alt="Logo" width="auto" height="30">
 </a>
 <h3 align="center">API Calendar</h3>
 <p align="center">
