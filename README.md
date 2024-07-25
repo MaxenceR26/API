@@ -41,16 +41,15 @@ This is an example of how to list things you need to use the software and how to
 • MYSQLI
  ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/MaxenceR26/API.git
    ```
-3. Initialization projects
+2. Initialization projects
    ```sh
    npm init
    ```
-4. Install package
+3. Install package
    ```sh
    npm i dotenv --save-dev
    ```
@@ -69,9 +68,9 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm i swagger-ui-express --save-dev
    ```
-5. Change informations of your database on file .env
-6. Insert the file SQL on your database
-7. Run
+4. Change informations of your database on file .env
+5. Insert the file SQL on your database
+6. Run
 ```sh
 npm start
 ```
