@@ -178,16 +178,16 @@ router.get('/type/:type', (req, res) => {
 
 // Route POST pour créer un événement
 router.post('/createEvent', (req, res) => {
-    const { event_date, event_title, descriptions, hours, type} = req.body;
+    const { event_date, event_title, descriptions, hours, type, name} = req.body;
 
-    if (!event_date || !event_title || !descriptions || !hours || !type) {
+    if (!event_date || !event_title || !descriptions || !hours || !type || !name) {
         res.status(400).send("Champs obligatoires manquants");
         return;
     }
 
-    const query = 'INSERT INTO events (event_date, event_title, descriptions, hours, type) VALUES (?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO events (event_date, event_title, descriptions, hours, type, name) VALUES (?, ?, ?, ?, ?, ?)';
 
-    connection.query(query, [event_date, event_title, descriptions, hours, type], function(err, results, fields) {
+    connection.query(query, [event_date, event_title, descriptions, hours, type, name], function(err, results, fields) {
         if (err) {
             console.error("Une erreur est survenue:", err);
             res.status(500).send("Une erreur s’est produite lors de l’exécution de la requête.");
