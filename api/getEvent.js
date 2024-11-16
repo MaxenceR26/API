@@ -38,7 +38,7 @@ const router = express.Router();
  */
 
 // Route POST pour envoyer un message
-router.post('/envoiemessage', (req, res) => {
+router.post('/api/envoiemessage/', (req, res) => {
     const { message } = req.body; // Récupère le message envoyé
 
     // Vérification de la présence du message
