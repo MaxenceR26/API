@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const port = 4000;
+
 
 /**
  * @swagger
