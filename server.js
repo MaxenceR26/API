@@ -35,7 +35,7 @@ const options = {
             }
         },
         servers: [
-            { url: 'http://localhost:5000/api' },  // Adapter l'URL de base avec /api
+            { url: 'https://api-iat7.onrender.com:4000/api' },  // Adapter l'URL de base avec /api
         ],
     },
     apis: ["./api/*.js"]
@@ -46,6 +46,6 @@ app.use("/api-docs", swaggerui.serve, swaggerui.setup(spacs));
 
 // Lancer le serveur
 const server = http.createServer(app);
-server.listen(5000, 'localhost', () => {
+server.listen(4000, () => {
     console.log('Server is listening at localhost on port 5000')
 });
