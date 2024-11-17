@@ -16,10 +16,15 @@ app.use((req, res, next) => {
 // Gestion des routes
 const getEvent = require('./api/getEvent');
 
-// Redirection des routes sous /api
-app.use('/api', getEvent);  // Utiliser '/api' pour toutes les routes dans getEvent.js
+// Redirection des routes
+app.use('/', getEvent);
+app.use('/id/:id', getEvent);
+app.use('/delete/:id', getEvent);
+app.use('/type/:type', getEvent);
+app.use('/createEvent', getEvent);
+// Server
+const server = http.createServer(app);
 
-// Swagger Documentation
 const options = {
     definition: {
         openapi: "3.0.0",
@@ -35,17 +40,27 @@ const options = {
             }
         },
         servers: [
-            { url: 'https://api-iat7.onrender.com:4000/api' },  // Adapter l'URL de base avec /api
+            { url: 'http://localhost:5000/' },
         ],
     },
     apis: ["./api/*.js"]
 };
 
 const spacs = swaggerjsdoc(options)
-app.use("/api-docs", swaggerui.serve, swaggerui.setup(spacs));
-
-// Lancer le serveur
-const server = http.createServer(app);
-server.listen(4000, () => {
+app.use("/api-docs", swaggerui.serve,
+    swaggerui.setup(spacs)
+)
+server.listen(5000, 'localhost', () => {
     console.log('Server is listening at localhost on port 5000')
-});
+})
+
+
+// npm start = run le server
+
+// ctrl + c / o = fermer le server
+
+// là tu ne fait que ce qui concerne ton server
+// tu relis dis a server de run api
+
+// avec postman tu test ton api genre : http://localhost:5000/api/user
+// j'ai installer express pour que tu définisses tes routes : "npm install express"
